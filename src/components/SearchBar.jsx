@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class SearchBar extends Component {
   render() {
-    const { searchText, onSearchTextChange, bookmarkedOnly, onBookmarkedChange, selectedGenre, onSelectedGenreChange } = this.props;
+    const { searchText,
+      onSearchTextChange,
+      bookmarkedOnly,
+      onBookmarkedChange,
+      selectedGenre,
+      onSelectedGenreChange } = this.props;
     return (
       <form data-testid="search-bar-form">
         <label htmlFor="input-label" data-testid="text-input-label">
@@ -48,13 +54,13 @@ class SearchBar extends Component {
   }
 }
 
-// SearchBar.propTypes = {
-//   searchText: PropTypes.string.isReqired,
-//   onSearchTextChange: PropTypes.func.isReqired,
-//   bookmarkedOnly: PropTypes.bool.isReqired,
-//   onBookmarkedChange: PropTypes.func.isReqired,
-//   selectedGenre: PropTypes.string.isReqired,
-//   onSelectedGenreChange: PropTypes.func.isReqired,
-// }.isRequired;
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+  bookmarkedOnly: PropTypes.bool.isRequired,
+  onBookmarkedChange: PropTypes.func.isRequired,
+  selectedGenre: PropTypes.string.isRequired,
+  onSelectedGenreChange: PropTypes.func.isRequired,
+}.isRequired;
 
 export default SearchBar;

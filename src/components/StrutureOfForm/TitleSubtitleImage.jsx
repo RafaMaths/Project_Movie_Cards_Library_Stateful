@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class TitleSubtitleImage extends Component {
   render() {
@@ -37,5 +38,12 @@ class TitleSubtitleImage extends Component {
     );
   }
 }
+
+TitleSubtitleImage.propTypes = {
+  title: PropTypes.string.isRequired,
+  subtitle: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+}.isRequired;
 
 export default TitleSubtitleImage;

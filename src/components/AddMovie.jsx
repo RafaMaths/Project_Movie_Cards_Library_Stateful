@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import TitleSubtitleImage from './TitleSubtitleImage';
+import TitleSubtitleImage from './StrutureOfForm/TitleSubtitleImage';
+import StoryLineValuationGenre from './StrutureOfForm/StoryLineValuationGenre';
 
 class AddMovie extends Component {
   constructor(props) {
     super(props);
 
     this.onChange = this.onChange.bind(this);
+    this.handleClickAndReset = this.handleClickAndReset.bind(this);
 
     this.state = {
       subtitle: '',
@@ -13,8 +15,21 @@ class AddMovie extends Component {
       imagePath: '',
       storyline: '',
       rating: 0,
-      // genre: 'action',
+      genre: 'action',
     };
+  }
+
+  handleClickAndReset() {
+    const { onClick } = this.props;
+    onClick(this.state);
+    this.setState({
+      subtitle: '',
+      title: '',
+      imagePath: '',
+      storyline: '',
+      rating: 0,
+      genre: 'action',
+    });
   }
 
   onChange({ target: { name, value } }) {
@@ -24,29 +39,18 @@ class AddMovie extends Component {
   }
 
   render() {
-    // const { onClick } = this.props;
-    const { storyline, rating } = this.state;
+    // const { storyline, rating, genre } = this.state;
     return (
       <form data-testid="add-movie-form">
         <TitleSubtitleImage states={ this.state } onChange={ this.onChange } />
-        <label htmlFor="storyline-input" data-testid="storyline-input-label">
-          Sinopse
-          <textarea
-            data-testid="storyline-input"
-            name="storyline"
-            value={ storyline }
-            onChange={ this.onChange }
-          />
-        </label>
-        <label htmlFor="rating-input" data-testid="rating-input-label">
-          Avaliação
-          <input
-            type="number"
-            data-testid="rating-input"
-            name="rating"
-            value={ rating }
-          />
-        </label>
+        <StoryLineValuationGenre states={ this.state } onChange={ this.onChange } />
+        <button
+          data-testid="send-button"
+          type="button"
+          onClick={ this.handleClickAndReset }
+        >
+          Adicionar filme
+        </button>
       </form>
     );
   }
