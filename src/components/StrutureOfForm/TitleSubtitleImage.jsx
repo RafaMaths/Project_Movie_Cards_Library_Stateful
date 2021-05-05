@@ -9,6 +9,7 @@ class TitleSubtitleImage extends Component {
         <label htmlFor="title-input-label" data-testid="title-input-label">
           Título
           <input
+            type="text"
             name="title"
             data-testid="title-input"
             value={ title }
@@ -18,6 +19,7 @@ class TitleSubtitleImage extends Component {
         <label htmlFor="subtitle-input-label" data-testid="subtitle-input-label">
           Subtítulo
           <input
+            type="text"
             name="subtitle"
             data-testid="subtitle-input"
             value={ subtitle }

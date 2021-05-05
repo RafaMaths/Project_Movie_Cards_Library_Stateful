@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+// import PropTypes from 'prop-types';
 import TitleSubtitleImage from './StrutureOfForm/TitleSubtitleImage';
 import StoryLineValuationGenre from './StrutureOfForm/StoryLineValuationGenre';
 
@@ -55,5 +56,9 @@ class AddMovie extends Component {
     );
   }
 }
+
+// AddMovie.propTypes = {
+//   onClick:
+// };
 
 export default AddMovie;
